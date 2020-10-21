@@ -1,0 +1,21 @@
+[
+{
+    "id": "1",
+    "name": "Neurophylol",
+    "dosage": "Twice a day",
+    "type": "MAOI"
+},
+
+{
+    "id": "2",
+    "name": "Zophylol",
+    "dosage": "Twice a day",
+    "type": "SSRI"
+},
+{
+    "id": "3",
+    "name": "Rolotoph",
+    "dosage": "Once a day",
+    "type": "SNRI"
+}
+]

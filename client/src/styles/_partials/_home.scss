@@ -1,0 +1,26 @@
+.home {
+    background-color: $background-fill;
+    height: auto;
+    &__cards {
+        display: flex;
+        flex-direction: column;        
+
+        }
+        &__card {
+            margin-bottom: 0 !important;
+            background-color: $background-fill;
+            border: 1px solid $alt-color !important;
+            // height: 1000px;
+            }
+            &__card-title {
+            background-color: $button-color !important;
+            color: $background-fill;
+            font-family: $bold-text;
+            }
+            &__card-subtitle {   
+            font-family: $bold-text;
+            }
+            &__card-text {
+
+            }
+}

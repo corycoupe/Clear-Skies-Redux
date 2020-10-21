@@ -1,0 +1,24 @@
+.header {
+    background-color: #FBF2DA;
+    &__nav {
+    display: flex;
+    justify-content: flex-end;
+    }
+    .mr-auto {
+        margin-right: 0 !important;
+    }
+    &__account {
+    display: flex;
+    justify-self: flex-end;
+    }
+&__menu {
+    position: relative;
+
+}
+
+&__menu-list {
+    position: fixed;
+    height: auto;
+
+}
+}

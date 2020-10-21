@@ -1,0 +1,32 @@
+@import "_partials/header";
+@import "_partials/variables";
+@import "_partials/typography";
+@import "_partials/home";
+@import "_partials/medication";
+@import "_partials/therapist";
+@import "_partials/therapistDetails";
+@import "_partials/schedule";
+* {
+  box-sizing: border-box;
+  font-family: $regular-text;
+}
+a {
+  text-decoration: none !important;
+}
+body {
+  margin: 0;
+  width: 100%;
+  // max-width: 100vw;
+  overflow-y: scroll;
+  max-height: 1500px;
+}
+
+$theme-colors: (
+  "primary": #FBF2DA,
+  "secondary": #152B3C,
+  "info": #2F906A,
+  "success": #D46240
+);
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap";

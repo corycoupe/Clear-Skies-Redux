@@ -1,0 +1,123 @@
+[
+    {
+      "therapistId": "1",
+      "name": "George Kuklinsky",
+      "profession": "Marriage Counselor",
+      "image": "./assets/images/therapist1.jpg",
+      "imagecard": "../../assets/images/therapist1.jpg",
+      "telephone": "604-555-5604",
+      "city": "Abbotsford",
+      "address": "Box Street 225",
+      "postal": "V53 3G1",
+      "email": "GeorgeK@gmail.com",
+      "schedule": [
+        {
+          "therapistId": "1",
+          "name": "George Kuklinsky",
+          "id": "C5",
+          "date": "2020-10-26T13:00",
+          "zoomCall": "https://zoom.us/j/72960602234"
+        },
+        {
+          "therapistId": "1",
+          "name": "George Kuklinsky",
+          "id": "C8",
+          "date": "2020-08-26T13:00",
+          "zoomCall": "https://zoom.us/j/7269060256"
+        }
+      ]
+    },
+    {
+      "therapistId": "2",
+      "name": "Karen O'Malley",
+      "profession": "Social Work Therapist",
+      "image": "./assets/images/therapist2.jpg",
+      "imagecard": "../../assets/images/therapist2.jpg",
+      "telephone": "604-555-4604",
+      "city": "Vancouver",
+      "address": "Melrose Street 23",
+      "postal": "V13 331",
+      "email": "KarenM@gmail.com",
+      "schedule": [
+        {
+          "therapistId": "2",
+          "name": "Karen O'Malley",
+          "id": "C2",
+          "date": "2020-08-27T13:00",
+          "zoomCall": "https://zoom.us/j/727906054556"
+        }
+      ]
+    },
+
+    {
+      "therapistId": "3",
+      "name": "Theo Vango",
+      "profession": "Trauma Work Therapist",
+      "image": "./assets/images/therapist3.jpg",
+      "imagecard": "../../assets/images/therapist3.jpg",
+      "telephone": "604-555-4604",
+      "city": "Vancouver",
+      "address": "Melrose Street 23",
+      "postal": "V13 331",
+      "email": "TheoVango@gmail.com",
+      "schedule": [
+        {
+          "therapistId": "3",
+          "name": "Theo Vango",
+          "id": "C6",
+          "date": "2020-08-28T13:00",
+          "zoomCall": "https://zoom.us/j/725906054556"
+        }
+      ]
+    },
+    {
+      "therapistId": "4",
+      "name": "Jason Moore",
+      "profession": "Family Therapist",
+      "image": "./assets/images/therapist4.jpg",
+      "imagecard": "../../assets/images/therapist4.jpg",
+      "telephone": "604-555-4604",
+      "city": "Vancouver",
+      "address": "Melrose Street 23",
+      "postal": "V13 331",
+      "email": "JasonMoore@gmail.com",
+      "schedule": [
+        {
+          "therapistId": "4",
+          "name": "Jason Moore",
+          "id": "D6",
+          "date": "2020-09-20T13:00",
+          "zoomCall": "https://zoom.us/j/726606054556"
+        }
+      ]
+    },
+    {
+      "therapistId": "5",
+      "name": "Cher Isaac",
+      "profession": "Group Therapist",
+      "image": "./assets/images/therapist5.jpg",
+      "imagecard": "../../assets/images/therapist5.jpg",
+      "telephone": "604-555-4604",
+      "city": "Toronto",
+      "address": "Triangle Street",
+      "postal": "V33 531",
+      "email": "CherIsaac@gmail.com",
+      "schedule": [
+      ]
+    },
+    {
+      "therapistId": "6",
+      "name": "Sophia Croix",
+      "profession": "General Therapist",
+      "image": "./assets/images/therapist6.jpg",
+      "imagecard": "../../assets/images/therapist6.jpg",
+      "telephone": "604-555-4604",
+      "city": "Toronto",
+      "address": "Generic Street 123",
+      "postal": "V33 531",
+      "email": "SophiaC@gmail.com",
+      "schedule": [
+      ]
+    }
+  ]
+  
