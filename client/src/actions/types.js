@@ -1,0 +1,26 @@
+// used for placing variables for types
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const USER_LOADED = 'USER_LOADED';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
+export const MEDICAL_ERROR = 'MEDICAL_ERROR';
+export const GET_MEDICAL = 'GET_MEDICAL';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const ADD_SCHEDULE = 'ADD_SCHEDULE';
+export const SCHEDULE_ERROR = 'SCHEDULE_ERROR';
+export const DELETE_SCHEDULE = 'DELETE_SCHEDULE';
+export const GET_SCHEDULE = 'GET_SCHEDULE';
+export const ADD_PHARMA = 'ADD_PHARMA';
+export const PHARMA_ERROR = 'PHARMA_ERROR';
+export const DELETE_PHARMA = 'DELETE_PHARMA';
+export const GET_PHARMA = 'GET_PHARMA';
+export const GET_THERAPIST = 'GET_THERAPIST';
+export const GET_THERAPISTS = 'GET_THERAPISTS';
+export const THERAPIST_ERROR = 'THERAPIST_ERROR';

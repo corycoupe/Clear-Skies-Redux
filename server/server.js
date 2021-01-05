@@ -1,22 +1,23 @@
-const express = require("express");
-const cors = require("cors");
-const app = express(); //invoke express
-
-const medicalRoute = require("./routes/medicalRoute");
-const therapistRoute = require("./routes/therapistRoute");
-const scheduleRoute = require("./routes/scheduleRoute");
+const express = require('express');
+const connectDB = require('./config/db');
+const app = express();
+const cors = require('cors');
+app.use(cors());
+app.options('*', cors());
+// Connect Database //
+connectDB();
 
 // middleware here
-app.use(express.json());
-app.use(cors());
+app.use(express.json({ extended: false }));
 
-// //medical endpoint
-app.use("/medical", medicalRoute);
+// Endpoints
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/medical', require('./routes/api/medical'));
+app.use('/api/schedule', require('./routes/api/schedule'));
+app.use('/api/pharma', require('./routes/api/pharma'));
+app.use('/api/therapist', require('./routes/api/therapist'));
 
-// //therapist endpoint
-app.use("/therapist", therapistRoute);
-
-// schedule endpoint
-app.use("/schedule", scheduleRoute);
 // opening a listening to port 5000 for server
-app.listen(5000, console.log("app is listening to port 5000"));
+const PORT = 5000;
+app.listen(PORT, () => console.log(`app is listening to port ${PORT}`));

@@ -1,6 +1,9 @@
 .medication {
-    &__head-table {
+  &__head-table {
     background-color: $button-color;
     color: $background-fill;
-    }
+  }
+  &__btn {
+    margin-bottom: 0.2rem !important;
+  }
 }

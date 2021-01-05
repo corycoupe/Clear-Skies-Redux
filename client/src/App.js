@@ -1,158 +1,77 @@
-import React, { Component } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import React, { Fragment, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import AlertMsg from './components/AlertMsg';
 import Header from './components/Header';
 import Home from './components/Home';
-import Medication from './components/Medication';
-import Therapist from './components/Therapist';
-import Schedule from './components/Schedule';
-import axios from 'axios';
-import TherapistDetails from './components/TherapistDetails';
-const apiUrl = 'http://localhost:5000/';
-class App extends Component {
-  state = {
-    schedule: [],
-    therapistList: [],
-    medication: [],
-    therapist: {},
-  };
-  componentDidMount() {
-    this.getMedicationList();
-    this.getTherapistList();
-    this.getScheduleList();
-  }
+import Schedule from './components/schedule/Schedule';
+import ScheduleForm from './components/schedule/ScheduleForm';
+import Pharma from './components/pharma/Pharma';
+import PharmaForm from './components/pharma/PharmaForm';
+import Therapist from './components/therapists/Therapist';
+import TherapistCard from './components/therapists/TherapistCard';
+import PrivateRoute from './components/routing/PrivateRoute';
+import CreateMedical from './components/forms/CreateMedical';
+import EditMedical from './components/forms/EditMedical';
+import Dashboard from './components/Dashboard';
+//Redux
+import { Provider } from 'react-redux';
+import store from './store';
+import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken';
 
-  componentDidUpdate(prevProps, prevState) {
-    const idFromUrl = this.props.location.pathname.split('/')[2];
-    console.log(this.props);
-    if (
-      prevProps.location.pathname.split('/')[2] !==
-      this.props.location.pathname.split('/')[2]
-    ) {
-      this.getTherapistDetails(idFromUrl);
-    }
-  }
-
-  getMedicationList = () => {
-    axios
-      .get(`${apiUrl}medical`)
-      .then((response) => this.setState({ medication: response.data }))
-      .catch((err) => console.log(err));
-  };
-
-  getScheduleList = () => {
-    axios
-      .get(`${apiUrl}schedule`)
-      .then((response) => this.setState({ schedule: response.data }))
-      .catch((err) => console.log(err));
-  };
-
-  getTherapistList = () => {
-    axios
-      .get(`${apiUrl}therapist`)
-      .then((response) => this.setState({ therapistList: response.data }))
-      .catch((err) => console.log(err));
-  };
-
-  getTherapistDetails = (therapistID) => {
-    //Default warehouseID for componentDidMount
-    if (therapistID === undefined) {
-      therapistID = '1';
-    }
-    axios.get(`${apiUrl}therapist/${therapistID}`).then((response) => {
-      console.log('this is ID for the therapistDetails Obj:', therapistID);
-      this.setState({ therapist: response.data }, () =>
-        console.log(this.state)
-      );
-    });
-  };
-
-  FormatDate = (dateTime) => {
-    let dateObj = new Date(dateTime);
-    const date = dateObj.getDate();
-    const year = dateObj.getFullYear();
-    const month = dateObj.getMonth();
-    const time = dateObj.toLocaleString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-    const timeAddHours = dateObj.getTime() + 2 * 60 * 60 * 1000;
-    const timeConvert = new Date(timeAddHours);
-    const timeEnd = timeConvert.toLocaleString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-    const formattedDate = `${month}/${date}/${year} ${time} - ${timeEnd}`;
-    return formattedDate;
-  };
-
-  SortSchedule = (schedule) => {
-    const sortedSchedule = schedule.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-    console.log('Sorted', sortedSchedule);
-    return sortedSchedule;
-  };
-
-  render() {
-    const { schedule, therapistList, medication, therapist } = this.state;
-
-    return (
-      <>
-        <Header />
-        {/* <Redirect from="/" to="/home" /> */}
-        <Switch>
-          {/* Route for inventory page */}
-          <Route
-            path='/home'
-            render={(props) => (
-              <Home
-                {...props}
-                schedule={schedule}
-                medication={medication}
-                FormatDate={this.FormatDate}
-              />
-            )}
-            exact
-          />
-          <Route
-            path='/medication'
-            render={(props) => (
-              <Medication {...props} medication={medication} />
-            )}
-            exact
-          />
-          <Route
-            path='/therapist'
-            render={(props) => (
-              <Therapist {...props} therapistList={therapistList} />
-            )}
-            exact
-          />
-          <Route
-            path='/schedule'
-            render={(props) => (
-              <Schedule
-                {...props}
-                schedule={schedule}
-                FormatDate={this.FormatDate}
-                SortSchedule={this.SortSchedule}
-              />
-            )}
-            exact
-          />
-          <Route
-            path='/therapist/:therapistid'
-            render={(props) => (
-              <TherapistDetails {...props} therapist={therapist} />
-            )}
-          />
-        </Switch>
-      </>
-    );
-  }
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
 }
 
-export default withRouter(App);
+// useEffect is a alternative to lifecycle methods, since we are using functions not classes
+// useEffect basically makes this a endless loop
+// the , [] at the end makes it only run once, as if it was componentDidMount instead of endless loop
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
 
-// Begin order 66
+  return (
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Header />
+          <Route exact path='/' component={Home} />
+          <section className='container'>
+            <AlertMsg />
+            <Switch>
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/therapist' component={Therapist} />
+              <Route exact path='/therapist/:id' component={TherapistCard} />
+              <PrivateRoute exact path='/dashboard' component={Dashboard} />
+              <PrivateRoute
+                exact
+                path='/create-medical'
+                component={CreateMedical}
+              />
+              <PrivateRoute
+                exact
+                path='/edit-medical'
+                component={EditMedical}
+              />
+              <PrivateRoute exact path='/schedule' component={Schedule} />
+              <PrivateRoute
+                exact
+                path='/schedule-form'
+                component={ScheduleForm}
+              />
+              <PrivateRoute exact path='/pharma' component={Pharma} />
+              <PrivateRoute exact path='/pharma-form' component={PharmaForm} />
+            </Switch>
+          </section>
+        </Fragment>
+      </Router>
+    </Provider>
+  );
+};
+
+export default App;

@@ -1,5 +1,8 @@
 .schedule {
-    &__card-title {
-        font-family: $bold-text;
-    }
+  &__card-title {
+    font-family: $bold-text;
+  }
+  &__btn {
+    margin-top: 1.5rem;
+  }
 }

@@ -1,11 +1,13 @@
-@import "_partials/header";
-@import "_partials/variables";
-@import "_partials/typography";
-@import "_partials/home";
-@import "_partials/medication";
-@import "_partials/therapist";
-@import "_partials/therapistDetails";
-@import "_partials/schedule";
+@import '_partials/header';
+@import '_partials/variables';
+@import '_partials/typography';
+@import '_partials/home';
+@import '_partials/medication';
+@import '_partials/therapist';
+@import '_partials/therapistDetails';
+@import '_partials/schedule';
+@import '_partials/form';
+@import '_partials/hero';
 * {
   box-sizing: border-box;
   font-family: $regular-text;
@@ -22,11 +24,10 @@ body {
 }
 
 $theme-colors: (
-  "primary": #FBF2DA,
-  "secondary": #152B3C,
-  "info": #2F906A,
-  "success": #D46240
+  'primary': #fbf2da,
+  'secondary': #152b3c,
+  'info': #2f906a,
+  'success': #d46240,
 );
 
-
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import '../../node_modules/bootstrap/scss/bootstrap';

@@ -1,0 +1,21 @@
+.hero-banner {
+  height: 100vh;
+  &__header {
+    display: flex;
+    justify-content: center;
+  }
+  &__paragraph {
+    margin-top: 30vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: $demi-text;
+  }
+}
+@media (min-width: $tablet-width) {
+  .hero-banner {
+    &__paragraph {
+      margin-top: 20%;
+    }
+  }
+}

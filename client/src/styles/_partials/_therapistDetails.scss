@@ -1,19 +1,24 @@
 .therapist-details {
-    &__image {
-        width: 25% !important;
-        height: 25% !important;
-    }
- &__body {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
- &__button {
-     width: 70%;
-     border-radius: 15px;
- }
- &__subtitle {
+  &__image {
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__button {
+    width: 70%;
+    border-radius: 15px;
+  }
+  &__subtitle {
     font-family: $demi-text;
- }
+  }
 }
 
+@media (min-width: $tablet-width) {
+  .therapist-details {
+    &__image {
+      //   height: 100vh !important;
+    }
+  }
+}
